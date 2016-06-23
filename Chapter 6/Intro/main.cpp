@@ -5,7 +5,6 @@ that elements in even positions come first*/
 
 using namespace std;
 
-
 int main()
 {
 	int array[2] = {1, 2};
