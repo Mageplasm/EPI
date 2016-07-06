@@ -14,7 +14,7 @@ bool advance(vector<int>);
 
 int main()
 {
-	vector<int> A = {1, 0, 3}; 
+	vector<int> A = {3, 2, 0, 0, 2, 0, 1}; 
 	cout << advance(A) << endl; 
 	return 0; 
 }
@@ -24,6 +24,8 @@ bool advance(vector<int> A)
 	vector<int> steps, position; 
 	int new_pos, step_pos; 
 	bool end = false; 
+
+	cout << A.size() << endl; 
 
 	for (int i = 0; i < A.size() - 1;)
 	{
@@ -47,16 +49,18 @@ bool advance(vector<int> A)
 			cout << "New_pos: " << new_pos << endl; 
 			steps[step_pos]--; 
 
-			if (A[new_pos] < 1 || new_pos >= A.size())
+			if (new_pos >= A.size() - 1)
+			{
+				end = true; 
+				break; 
+			}
+
+			if (A[new_pos] < 1)
 				continue;
 
 			else
 			{
-				i = new_pos; 
-
-				if (new_pos == A.size() - 1)
-					end = true; 
-
+				i = new_pos;
 				break;
 			}	   
 		}
